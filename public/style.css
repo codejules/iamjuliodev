@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: hsl(0, 0%, 9%);
+  --light: hsl(0, 0%, 85%);
+  --button: hsl(188, 86%, 53%);
+  --primary: hsl(0, 0%, 45%);
+}
+
+body {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  /* background: #181818; */
+  background-color: color-mix(in srgb, #8c0e98 50%, black 50%);
+}
+
+.header {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+}
+
+.header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 5rem;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 100%, 0.2);
+
+  backdrop-filter: blur(0.25rem);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.4);
+}
+
+.header .nav .logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: black;
+}
+
+.header .nav .follow {
+  padding: 0.5rem 1.25rem;
+  background: var(--button);
+
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+
+  border-radius: 100vw;
+}
+
+.blank_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100dvh;
+  background-color: hsl(0, 0%, 85%);
+}
+
+.blank_section .blank_section__text {
+  cursor: default;
+
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: black;
+}
+
+.content_section {
+  position: relative;
+
+  width: 100%;
+  height: 200dvh;
+  background-color: var(--primary);
+}
+
+.content_section .content_clip {
+  overflow: clip;
+
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100dvh;
+  background-color: var(--light);
+}
+
+.content_section .text-content {
+  display: inline-block;
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (width > 550px) {
+    font-size: 5rem;
+  }
+}
+
+.content_section .content_clip .text-clip {
+  position: sticky;
+  top: 0;
+  transform: translateY(calc(50dvh - 50%));
+}
+
+.content_section .content_clip p {
+  text-align: center;
+  transform: translateY(calc(50dvh - 50%));
+}
+
+.content_section .text-content.text-image {
+  position: sticky;
+  z-index: 10;
+  top: calc(100dvh - 50% - 3rem);
+
+  color: white;
+}
+
+.content_section .content_image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 150dvh;
+}
+
+.content_section .content_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  position: fixed;
+  bottom: 3rem;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 1.5rem;
+  font-family: "Geist Sans", sans-serif;
+  font-weight: 80;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 0;
+  mix-blend-mode: difference;
+  transition: filter 0.2s;
+  background: white;
+  color: black;
+  cursor: pointer;
+
+  @media (width > 550px) {
+    padding: 1rem 4rem;
+  }
+}
+
+button::before {
+  content: "Contact me";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  mix-blend-mode: none;
+}
+
+button::after {
+  content: "";
+  left: 8%;
+  right: 8%;
+  height: 12%;
+  top: 130%;
+  background: white;
+  position: absolute;
+  border-radius: 100px;
+  mix-blend-mode: difference;
+}
+
+button:is(:hover, :focus-visible) {
+  filter: brightness(0.5);
+}
